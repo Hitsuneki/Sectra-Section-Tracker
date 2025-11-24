@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { User, Bell, Shield, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function SettingsPage() {
   const handleSave = () => {
@@ -15,7 +16,8 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -177,5 +179,6 @@ export default function SettingsPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }

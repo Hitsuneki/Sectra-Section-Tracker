@@ -15,6 +15,7 @@ import { Search, Edit, CheckCircle2, Clock, AlertCircle, XCircle } from 'lucide-
 import { mockProgress, mockStudents, mockTasks } from '@/lib/mockData';
 import type { Progress } from '@/types';
 import { toast } from 'sonner';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function ProgressPage() {
   const [progressList, setProgressList] = useState<Progress[]>(mockProgress);
@@ -110,7 +111,8 @@ export default function ProgressPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -292,5 +294,6 @@ export default function ProgressPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }

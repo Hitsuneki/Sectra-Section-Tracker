@@ -12,6 +12,7 @@ import { Plus, Search, Edit, Trash2, Users } from 'lucide-react';
 import { mockSections } from '@/lib/mockData';
 import type { Section } from '@/types';
 import { toast } from 'sonner';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function SectionsPage() {
   const [sections, setSections] = useState<Section[]>(mockSections);
@@ -86,7 +87,8 @@ export default function SectionsPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -254,5 +256,6 @@ export default function SectionsPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }
