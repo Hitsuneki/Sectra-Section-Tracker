@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { FolderKanban, Users, ClipboardList, TrendingUp, Clock, CheckCircle2 } from 'lucide-react';
 import { mockSections, mockStudents, mockTasks, mockProgress } from '@/lib/mockData';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function DashboardPage() {
   const totalSections = mockSections.length;
@@ -22,7 +23,8 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -161,5 +163,6 @@ export default function DashboardPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }

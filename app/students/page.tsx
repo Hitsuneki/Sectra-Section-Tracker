@@ -14,6 +14,7 @@ import { Plus, Search, Edit, Trash2, Mail } from 'lucide-react';
 import { mockStudents, mockSections } from '@/lib/mockData';
 import type { Student } from '@/types';
 import { toast } from 'sonner';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function StudentsPage() {
   const [students, setStudents] = useState<Student[]>(mockStudents);
@@ -97,7 +98,8 @@ export default function StudentsPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -294,5 +296,6 @@ export default function StudentsPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }

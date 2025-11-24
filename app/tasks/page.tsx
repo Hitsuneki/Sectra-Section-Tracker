@@ -15,6 +15,7 @@ import { Plus, Search, Edit, Trash2, Calendar, Target } from 'lucide-react';
 import { mockTasks, mockSections } from '@/lib/mockData';
 import type { Task } from '@/types';
 import { toast } from 'sonner';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>(mockTasks);
@@ -112,7 +113,8 @@ export default function TasksPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <ProtectedRoute>
+      <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="ml-64 flex-1 p-8">
@@ -342,5 +344,6 @@ export default function TasksPage() {
         </div>
       </main>
     </div>
+    </ProtectedRoute>
   );
 }

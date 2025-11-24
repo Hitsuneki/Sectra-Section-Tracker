@@ -9,8 +9,11 @@ import {
   ClipboardList, 
   TrendingUp,
   Settings,
-  GraduationCap
+  GraduationCap,
+  LogOut
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useAuth } from '@/lib/auth-context';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -23,6 +26,7 @@ const navigation = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const { logout, user } = useAuth();
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-border bg-card">
@@ -55,11 +59,20 @@ export function AppSidebar() {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-border p-4">
-          <div className="text-small text-muted-foreground">
-            <p className="font-medium">Teacher Portal</p>
-            <p>Academic Year 2024</p>
+        <div className="border-t border-border p-4 space-y-3">
+          <div className="text-xs text-muted-foreground">
+            <p className="font-medium">{user?.name || 'Teacher'}</p>
+            <p className="truncate">{user?.email}</p>
           </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="w-full justify-start"
+            onClick={logout}
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Logout</span>
+          </Button>
         </div>
       </div>
     </aside>
