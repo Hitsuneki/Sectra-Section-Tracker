@@ -10,14 +10,7 @@ import {
   TrendingUp,
   Settings,
   GraduationCap,
-  LogOut,
-  Megaphone,
-  BookOpen,
-  Calendar,
-  BarChart3,
-  FileText,
-  ClipboardCheck,
-  Bell
+  LogOut
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/lib/auth-context';
