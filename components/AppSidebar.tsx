@@ -21,6 +21,13 @@ const navigation = [
   { name: 'Students', href: '/students', icon: Users },
   { name: 'Tasks', href: '/tasks', icon: ClipboardList },
   { name: 'Progress', href: '/progress', icon: TrendingUp },
+  { name: 'Announcements', href: '/announcements', icon: Megaphone },
+  { name: 'Gradebook', href: '/gradebook', icon: BookOpen },
+  { name: 'Calendar', href: '/calendar', icon: Calendar },
+  { name: 'Reports', href: '/reports', icon: BarChart3 },
+  { name: 'Submissions', href: '/submissions', icon: FileText },
+  { name: 'Attendance', href: '/attendance', icon: ClipboardCheck },
+  { name: 'Notifications', href: '/notifications', icon: Bell },
   { name: 'Settings', href: '/settings', icon: Settings },
 ];
 
